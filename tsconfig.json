@@ -8,6 +8,6 @@
       "outDir": ".build",
       "moduleResolution": "node",
       "lib": ["es2015"],
-      "rootDir": "./"
+      "rootDir": "./",
     }
   }
