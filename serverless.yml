@@ -1,0 +1,16 @@
+service: cognito-github-oidc
+
+plugins:
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  authorize:
+    handler: handler.authorize
+    events:
+      - http:
+          path: authorize
+          method: get
