@@ -14,3 +14,15 @@ functions:
       - http:
           path: authorize
           method: get
+  token:
+    handler: handler.token
+    events:
+      - http:
+          path: token
+          method: post
+  auth_callback:
+    handler: handler.auth_callback
+    events:
+      - http:
+          path: auth_callback
+          method: get
