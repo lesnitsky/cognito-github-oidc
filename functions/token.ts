@@ -9,9 +9,6 @@ const token = async (
 ): Promise<APIGatewayProxyResult> => {
   const body = qs.parse(event.body!);
 
-  console.log(body);
-  console.log(event.headers['Host']);
-
   const res = await fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
     headers: {
@@ -24,8 +21,6 @@ const token = async (
   const data = await res.json();
 
   if (res.status != 200) {
-    console.log(res.status, data);
-
     return {
       statusCode: res.status,
       body: data,
@@ -63,8 +58,6 @@ const token = async (
     scope: `openid ${(data.scope as string).replace(/,/g, ' ')}`,
     token_type: 'Bearer',
   };
-
-  console.log(resBody);
 
   return {
     statusCode: 200,

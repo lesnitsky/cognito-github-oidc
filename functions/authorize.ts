@@ -16,8 +16,6 @@ const authorize = async (
     response_type: params['response_type'],
   };
 
-  console.log('query', query);
-
   return {
     statusCode: 302,
     headers: {
