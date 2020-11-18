@@ -1,6 +1,6 @@
 # Cognito Github OpenID
 
-GitHub OAuth openid shim
+GitHub OAuth openid shim for AWS Cognito
 
 ## Getting Started
 
