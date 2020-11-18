@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@octokit/graphql": "^4.5.7",
+    "json-web-key": "^0.4.0",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1"
   }

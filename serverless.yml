@@ -18,11 +18,18 @@ functions:
     handler: handler.token
     environment:
       PRIVATE_KEY: ${file(keys/cognito-github-oidc.key)}
-      PUBLIC_KEY: ${file(keys/cognito-github-oidc.key.pub)}
     events:
       - http:
           path: token
           method: post
+  jwks:
+    handler: handler.jwks
+    environment:
+      PUBLIC_KEY: ${file(keys/cognito-github-oidc.key.pub)}
+    events:
+      - http:
+          path: jwks
+          method: get
   auth_callback:
     handler: handler.auth_callback
     events:
