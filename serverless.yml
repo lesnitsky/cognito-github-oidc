@@ -36,3 +36,10 @@ functions:
       - http:
           path: auth_callback
           method: get
+
+  userinfo:
+    handler: handler.userinfo
+    events:
+      - http:
+          path: userinfo
+          method: get
