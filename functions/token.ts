@@ -35,7 +35,7 @@ const token = async (
   const { viewer } = await graphql({
     query: `{
       viewer {
-        login
+        id
       }
     }`,
     headers: {
@@ -45,7 +45,7 @@ const token = async (
 
   const idToken = jwt.sign(
     {
-      sub: viewer.login,
+      sub: viewer.id,
     },
     process.env['PRIVATE_KEY'] as string,
     {
