@@ -16,6 +16,9 @@ functions:
           method: get
   token:
     handler: handler.token
+    environment:
+      PRIVATE_KEY: ${file(keys/cognito-github-oidc.key)}
+      PUBLIC_KEY: ${file(keys/cognito-github-oidc.key.pub)}
     events:
       - http:
           path: token

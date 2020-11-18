@@ -4,15 +4,13 @@ import fetch from 'node-fetch';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { graphql } from '@octokit/graphql';
 
-import * as Keys from '../keys';
-
 const token = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
   const body = qs.parse(event.body!);
 
   console.log(body);
-  console.log(event.headers['x-requested-with']);
+  console.log(event.headers['Host']);
 
   const res = await fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
@@ -49,13 +47,13 @@ const token = async (
     {
       sub: viewer.login,
     },
-    Keys.PRIVATE_KEY,
+    process.env['PRIVATE_KEY'] as string,
     {
-      issuer: `https://${event.headers['x-requested-with']}`,
+      issuer: `https://${event.headers['Host']}`,
       expiresIn: '1h',
       algorithm: 'RS256',
       keyid: 'cognito-github-oidc',
-      audience: data.client_id,
+      audience: body.client_id,
     }
   );
 
