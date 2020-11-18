@@ -6,6 +6,8 @@ plugins:
 provider:
   name: aws
   runtime: nodejs10.x
+  environment:
+    KEY_ID: cognito-github-oidc
 
 functions:
   authorize:

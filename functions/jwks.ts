@@ -10,7 +10,7 @@ const jwks = async (
       keys: [
         {
           alg: 'RS256',
-          kid: 'cognito-github-oidc',
+          kid: process.env['KEY_ID'],
           ...JSONWebKey.fromPEM(process.env['PUBLIC_KEY']).toJSON(),
         },
       ],

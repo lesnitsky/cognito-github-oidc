@@ -52,7 +52,7 @@ const token = async (
       issuer: `https://${event.headers['Host']}`,
       expiresIn: '1h',
       algorithm: 'RS256',
-      keyid: 'cognito-github-oidc',
+      keyid: process.env['KEY_ID'],
       audience: body.client_id,
     }
   );
