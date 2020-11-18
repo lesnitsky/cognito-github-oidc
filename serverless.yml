@@ -30,12 +30,6 @@ functions:
       - http:
           path: jwks
           method: get
-  auth_callback:
-    handler: handler.auth_callback
-    events:
-      - http:
-          path: auth_callback
-          method: get
 
   userinfo:
     handler: handler.userinfo
