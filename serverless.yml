@@ -8,6 +8,8 @@ provider:
   runtime: nodejs10.x
   environment:
     KEY_ID: cognito-github-oidc
+  apiGateway:
+    shouldStartNameWithService: true
 
 functions:
   authorize:
