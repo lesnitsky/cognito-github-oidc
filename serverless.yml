@@ -41,3 +41,16 @@ functions:
       - http:
           path: userinfo
           method: get
+
+resources:
+  Outputs:
+    APIGatewayDomain:
+      Value:
+        Fn::Join:
+          - ""
+          - - "https://"
+            - Ref: ApiGatewayRestApi
+            - ".execute-api."
+            - Ref: "AWS::Region"
+            - "."
+            - Ref: "AWS::URLSuffix"
