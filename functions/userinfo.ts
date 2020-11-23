@@ -7,6 +7,7 @@ const userinfo = async (
   const { viewer } = await graphql({
     query: `{
         viewer {
+            login
             name
             email
         }
